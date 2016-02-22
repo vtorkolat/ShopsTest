@@ -11,4 +11,5 @@ logs/
 .project
 *.class
 *.war
+*.iml
 .gitignore~
