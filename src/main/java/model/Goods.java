@@ -3,16 +3,18 @@ package model;
 import model.enumerations.Status;
 
 public class Goods {
+    private int id;
     private int price;
     private String title;
     private Status status;
+    private int CategoryId;
 
-    public Goods(){}
+    public int getId() {
+        return id;
+    }
 
-    public Goods(int price, String title, Status status) {
-        this.price = price;
-        this.title = title;
-        this.status = status;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPrice() {
@@ -37,5 +39,13 @@ public class Goods {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getCategoryId() {
+        return CategoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        CategoryId = categoryId;
     }
 }

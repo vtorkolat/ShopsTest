@@ -7,9 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class AbstractJdbcDao {
+public abstract class AbstractJdbcDao {
     protected Connection connection;
-
 
     private ConnectionProvider connectionProvider;
 

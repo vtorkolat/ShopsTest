@@ -1,10 +1,10 @@
 package model.enumerations;
 
 public enum CategoryTitle {
-    WEAR ("Одежда"),
-    DRINKS("Напитки"),
-    ALCOHOL ("Алкоголь"),
-    FOOD ("Еда");
+    WEAR ("wear"),
+    DRINKS("drinks"),
+    ALCOHOL ("alkohol"),
+    FOOD ("food");
 
     protected String categoryTitle;
 

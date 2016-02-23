@@ -1,8 +1,12 @@
 package model;
 
-public class Shop {
+import java.io.Serializable;
+
+public class Shop  implements Serializable  {
     private int id;
     private String title;
+
+    public Shop(){}
 
     public Shop(int id, String title) {
         this.id = id;
