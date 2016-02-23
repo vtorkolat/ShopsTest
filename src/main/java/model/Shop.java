@@ -1,16 +1,19 @@
 package model;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Shop  implements Serializable  {
+public class Shop   {
     private int id;
     private String title;
+    private List<Category> categories = new ArrayList<>();
 
     public Shop(){}
 
     public Shop(int id, String title) {
         this.id = id;
         this.title = title;
+
     }
 
     public int getId() {
@@ -27,5 +30,18 @@ public class Shop  implements Serializable  {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    @Override
+    public String toString() {
+        return this.title ;
     }
 }

@@ -1,6 +1,6 @@
 package abstractFactory;
 
-public class Ashan implements AbstractShop {
+public class Auchan implements ShopFactory {
     @Override
     public void getShop() {
 

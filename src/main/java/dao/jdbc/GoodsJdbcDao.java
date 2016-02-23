@@ -22,6 +22,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
 
     @Override
     public void create(Goods good) throws DuplicateGoodsExeptions {
+        init();
         PreparedStatement ps=null;
         try{ ps= getPreparedStatement(SQL_INSERT);
             ps.setInt(1, good.getId());
@@ -43,6 +44,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
 
     @Override
     public Goods read(int id) {
+        init();
         Goods good = new Goods();
         PreparedStatement ps=null;
         try { ps = getPreparedStatement(SQL_SELECT_BY_ID);
@@ -65,6 +67,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
 
     @Override
     public void update(Goods good) {
+        init();
         PreparedStatement ps = null;
         try {
             ps = getPreparedStatement(SQL_UPDATE_BY_ID);
@@ -83,6 +86,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
 
     @Override
     public void delete(int id) {
+        init();
         PreparedStatement ps = null;
         try{ps = getPreparedStatement(SQL_DELETE_BY_ID);
             ps.setInt(1, id);
@@ -96,6 +100,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
 
     @Override
     public List<Goods> getAll() {
+        init();
         List<Goods> goods = new ArrayList<>();
         Statement statement = null;
         try {statement = getStatement();

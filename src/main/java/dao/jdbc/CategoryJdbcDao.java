@@ -20,6 +20,7 @@ public class CategoryJdbcDao extends AbstractJdbcDao implements CategoryDao {
 
     @Override
     public void create(Category category) {
+        init();
         PreparedStatement ps = null;
         try {ps = getPreparedStatement(SQL_INSERT);
             ps.setInt(1, category.getId());
@@ -37,6 +38,7 @@ public class CategoryJdbcDao extends AbstractJdbcDao implements CategoryDao {
 
     @Override
     public Category read(int id) {
+        init();
         Category category = new Category();
         PreparedStatement ps = null;
         try{ps = getPreparedStatement(SQL_SELECT_BY_ID);
@@ -58,6 +60,7 @@ public class CategoryJdbcDao extends AbstractJdbcDao implements CategoryDao {
 
     @Override
     public void update(Category category) {
+        init();
         PreparedStatement ps = null;
         try{ ps = getPreparedStatement(SQL_UPDATE_BY_ID);
             ps.setInt(1, category.getId());
@@ -74,6 +77,7 @@ public class CategoryJdbcDao extends AbstractJdbcDao implements CategoryDao {
 
     @Override
     public void delete(int id) {
+        init();
         PreparedStatement ps = null;
         try {ps = getPreparedStatement(SQL_DELETE_BY_ID);
             ps.setInt(1, id );
@@ -88,6 +92,7 @@ public class CategoryJdbcDao extends AbstractJdbcDao implements CategoryDao {
 
     @Override
     public List<Category> getAll() {
+        init();
         List<Category> categories = new ArrayList<>();
         Statement statement = null;
         try{statement = getStatement();

@@ -22,6 +22,7 @@ public class ShopJdbcDao extends AbstractJdbcDao implements ShopDao {
 
     @Override
     public void create(Shop shop) throws DuplicateShopExeptions {
+        init();
         PreparedStatement ps = null;
         try {
             ps = getPreparedStatement(SQL_INSERT);
@@ -41,6 +42,7 @@ public class ShopJdbcDao extends AbstractJdbcDao implements ShopDao {
 
     @Override
     public Shop read(int id) {
+        init();
         Shop shop = null;
         PreparedStatement ps = null;
         try {
@@ -61,6 +63,7 @@ public class ShopJdbcDao extends AbstractJdbcDao implements ShopDao {
 
     @Override
     public void update(Shop shop) {
+        init();
         PreparedStatement ps = null;
         try {
             ps = getPreparedStatement(SQL_UPDATE_BY_ID);
@@ -76,6 +79,7 @@ public class ShopJdbcDao extends AbstractJdbcDao implements ShopDao {
 
     @Override
     public void delete(int id) {
+        init();
         PreparedStatement ps = null;
         try {
             ps = getPreparedStatement(SQL_DELETE_BY_ID);
@@ -91,6 +95,7 @@ public class ShopJdbcDao extends AbstractJdbcDao implements ShopDao {
 
     @Override
     public List<Shop> getAll() {
+        init();
         List<Shop> shops = new ArrayList<>();
         Statement statement = null;
 
