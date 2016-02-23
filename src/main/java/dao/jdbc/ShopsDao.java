@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ShopsDao {
     private static ShopsDao instance;
-    private Map<Integer, Shop> shops = new HashMap<>();
+    private Map<String, Shop> shops = new HashMap<>();
 
     {
         shops.put("Furshet", new Shop(1, "Furshet"));

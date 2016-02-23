@@ -4,6 +4,11 @@ public class Shop {
     private int id;
     private String title;
 
+    public Shop(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     public int getId() {
         return id;
     }

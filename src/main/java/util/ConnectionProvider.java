@@ -9,7 +9,7 @@ public class ConnectionProvider {
 
     private static final String USER = "test";
     private static final String PASSWORD = "test";
-    private static final String URL = "jdbc:mysql://localhost:5432/shopstest";
+    private static final String URL = "jdbc:mysql://localhost:3306/shop_test";
 
     public void init() {
         try {
