@@ -12,4 +12,5 @@ public interface GoodsDao {
     void update(Goods good);
     void delete(int id);
     List<Goods> getAll();
+    void changePrices();
 }

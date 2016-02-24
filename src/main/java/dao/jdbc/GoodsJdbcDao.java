@@ -18,7 +18,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
     private static final String SQL_UPDATE_BY_ID = "UPDATE goods SET id = ?,goods_title=?, price = ?, status=?, category_id=?";
     private static final String SQL_DELETE_BY_ID = "DELETE goods WHERE id = ?";
     private static final String SQL_SELECT_ALL = "SELECT * FROM goods";
-
+    private static final String SQL_CHANGE_PRICES = "UPDATE goods SET price=(price*1.2) WHERE status=?";
 
     @Override
     public void create(Goods good) throws DuplicateGoodsExeptions {
@@ -27,7 +27,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
         try{ ps= getPreparedStatement(SQL_INSERT);
             ps.setInt(1, good.getId());
             ps.setString(2, good.getTitle());
-            ps.setInt(3, good.getPrice());
+            ps.setFloat(3, good.getPrice());
             ps.setString(4, String.valueOf(good.getStatus()));
             ps.setInt(5, good.getCategoryId());
 
@@ -73,7 +73,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
             ps = getPreparedStatement(SQL_UPDATE_BY_ID);
             ps.setInt(1, good.getId());
             ps.setString(2, good.getTitle());
-            ps.setInt(3, good.getPrice());
+            ps.setFloat(3, good.getPrice());
             ps.setString(4, String.valueOf(good.getStatus()));
             ps.setInt(5, good.getCategoryId());
         }catch (SQLException e) {
@@ -109,7 +109,7 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
             while (rs.next()){
                 good.setId(rs.getInt(1));
                 good.setTitle(rs.getString(2));
-                good.setPrice(rs.getInt(3));
+                good.setPrice(rs.getFloat(3));
                 good.setStatus(Status.fromString(rs.getString(4)));
                 good.setCategoryId(rs.getInt(5));
             goods.add(good);}
@@ -119,5 +119,20 @@ public class GoodsJdbcDao extends AbstractJdbcDao implements GoodsDao {
             closeStatement(statement);
         }
         return goods;
+    }
+
+    @Override
+    public void changePrices() {
+        init();
+        PreparedStatement ps = null;
+        float changePrice = 1.2f;
+        try {ps = getPreparedStatement(SQL_CHANGE_PRICES);
+        ps.setFloat(1, changePrice);
+            ps.setString(2, "Available");
+        }catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeStatement(ps);
+        }
     }
 }

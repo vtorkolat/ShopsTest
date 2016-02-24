@@ -3,7 +3,7 @@ package model.enumerations;
 public enum CategoryTitle {
     WEAR ("wear"),
     DRINKS("drinks"),
-    ALCOHOL ("alkohol"),
+    ALCOHOL ("alcohol"),
     FOOD ("food");
 
     protected String categoryTitle;

@@ -11,4 +11,5 @@ public interface ShopDao {
     void update(Shop shop);
     void delete(int id);
     List<Shop> getAll();
+
 }

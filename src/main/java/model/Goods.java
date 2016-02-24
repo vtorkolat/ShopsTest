@@ -4,7 +4,7 @@ import model.enumerations.Status;
 
 public class Goods {
     private int id;
-    private int price;
+    private float price;
     private String title;
     private Status status;
     private int CategoryId;
@@ -17,11 +17,11 @@ public class Goods {
         this.id = id;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

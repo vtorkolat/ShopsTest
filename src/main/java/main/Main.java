@@ -1,15 +1,19 @@
 package main;
 
-import abstractFactory.ShopFactory;
-import abstractFactory.create.BillaShopFactory;
-import abstractFactory.create.ShopCreator;
+import threads.AuchanThread;
+import threads.BillaThread;
+import threads.FinishThreads;
 
 public class Main {
-    public static void main(String[] args) {
-        ShopCreator shopCreator = new BillaShopFactory();
-
-        ShopFactory shopFactory = shopCreator.createShop();
-        shopFactory.getShop();
+    public static void main(String[] args) throws InterruptedException {
+        Thread billaThread = new BillaThread();
+        Thread auchanThread = new AuchanThread();
+        Thread finish = new FinishThreads();
+        billaThread.start();
+        Thread.sleep(10000);
+        auchanThread.start();
+        finish.start();
+        finish.join();
 
     }
 }

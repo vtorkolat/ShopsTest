@@ -1,7 +1,7 @@
-CREATE DATABASE shop_test;
+CREATE DATABASE IF NOT EXISTS shop_test;
 
 CREATE TABLE shops (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL,
   shop_title VARCHAR(50),
   PRIMARY KEY (id)
 )ENGINE = InnoDB,
@@ -9,19 +9,20 @@ CREATE TABLE shops (
   COLLATE = utf8_general_ci;
 
 CREATE TABLE category (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL,
   category_title VARCHAR(50),
   shops_id INT,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE (category_title, shops_id)
 )ENGINE = InnoDB,
   DEFAULT CHARACTER SET  = utf8,
   COLLATE = utf8_general_ci;
 
 
 CREATE TABLE goods (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL,
   goods_title VARCHAR(50),
-  price INT,
+  price REAL,
   status VARCHAR(50),
   category_id INT,
   PRIMARY KEY (id)
